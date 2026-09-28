@@ -24,14 +24,24 @@ def main():
         print(f"\nRows per {cat_col}:")
         print(df[cat_col].value_counts())
 
-    text_col = next((c for c in df.columns
-                     if any(k in c.lower() for k in ["prompt", "turns", "text", "question"])), None)
-    if text_col:
-        empty = df[text_col].isna() | (df[text_col].astype(str).str.strip().isin(["", "[]", "None"]))
-        print(f"\nRows with empty '{text_col}': {empty.sum()} / {len(df)}")
-        if cat_col:
-            print("Empty rows per category:")
-            print(df[empty][cat_col].value_counts())
+    text_col = "turns"
+
+    def is_empty(t):
+        if t is None:
+            return True
+        try:
+            return len(t) == 0 or all(x is None or str(x).strip() == "" for x in t)
+        except TypeError:
+            return str(t).strip() == ""
+
+    empty = df[text_col].apply(is_empty)
+    print(f"\nRows with empty '{text_col}': {empty.sum()} / {len(df)}")
+    if cat_col:
+        print("Empty rows per category:")
+        print(df[empty][cat_col].value_counts())
+
+    print("\nTurns per prompt:")
+    print(df[text_col].apply(len).value_counts().sort_index())
 
     print("\nFirst row:")
     pd.set_option("display.max_colwidth", 300)
