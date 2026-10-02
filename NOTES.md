@@ -7,3 +7,11 @@
 - Algorithm 1 (greedy + swap), k=20 of 80 per category, 20 seeds, bge-small-en-v1.5:
   18.1% avg similarity reduction vs random; wins in all 11 categories.
   Lowest: summarization (3.1%), likely shared instruction template. Highest: math (32.4%).
+  - Raw similarity values (~0.7) are much higher than the paper's (~0.14) because
+  bge-small uses a different similarity scale than OpenAI's embedder.
+  Compare relative reduction, not raw values.
+
+## 2026-10-01
+- Added README with progress and Algorithm 1 results.
+- Updated requirements.txt (sentence-transformers, matplotlib).
+- Next: speculative decoding on Colab (Qwen3-0.6B draft, Qwen3-1.7B target).
