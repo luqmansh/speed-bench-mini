@@ -17,3 +17,4 @@ A small-scale reproduction of **SPEED-Bench: A Unified and Diverse Benchmark for
 - Full table: `results/selection_results.csv`
 
 **Dataset note:** the released split has 120 multi-turn prompts vs 167 reported in the paper.
+![Algorithm 1 vs random selection](results/selection_plot.png)
