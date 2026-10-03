@@ -15,3 +15,6 @@
 - Added README with progress and Algorithm 1 results.
 - Updated requirements.txt (sentence-transformers, matplotlib).
 - Next: speculative decoding on Colab (Qwen3-0.6B draft, Qwen3-1.7B target).
+## 2026-10-03
+- Wrote specdec/PLAN.md (draft/target models, verification approach, correctness check).
+- Documented results file columns.
