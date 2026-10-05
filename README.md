@@ -18,3 +18,16 @@ A small-scale reproduction of **SPEED-Bench: A Unified and Diverse Benchmark for
 
 **Dataset note:** the released split has 120 multi-turn prompts vs 167 reported in the paper.
 ![Algorithm 1 vs random selection](results/selection_plot.png)
+
+## How to reproduce
+
+```bash
+git clone https://github.com/luqmansh/speed-bench-mini.git
+cd speed-bench-mini
+python -m venv .venv
+.venv\Scripts\activate          # Mac/Linux: source .venv/bin/activate
+pip install -r requirements.txt
+python scripts/explore_data.py      # dataset stats
+python selection/diversity.py       # Algorithm 1 vs random -> results/selection_results.csv
+python selection/plot_results.py    # chart -> results/selection_plot.png
+```
