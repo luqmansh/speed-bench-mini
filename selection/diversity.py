@@ -1,4 +1,16 @@
-"""Reproduce Algorithm 1 (greedy selection + local swap refinement) vs random selection."""
+"""Reproduce Algorithm 1 (greedy selection + local swap refinement) vs random selection.
+
+For each SPEED-Bench category, picks K of the 80 prompts two ways (random, and the
+paper's Algorithm 1), then compares average pairwise cosine similarity.
+Lower similarity = more diverse selection.
+
+Usage:
+    python selection/diversity.py
+Output:
+    results/selection_results.csv
+
+
+"""
 import os
 import numpy as np
 import pandas as pd
