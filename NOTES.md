@@ -18,3 +18,5 @@
 ## 2026-10-03
 - Wrote specdec/PLAN.md (draft/target models, verification approach, correctness check).
 - Documented results file columns.
+## 2026-10-04
+- Added reproduction steps to README and usage docs to diversity.py.
